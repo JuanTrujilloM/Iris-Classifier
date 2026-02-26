@@ -17,7 +17,7 @@ from sklearn.linear_model import LogisticRegression
 # CONFIGURACIÓN GENERAL
 # ------------------------------
 st.set_page_config(page_title="Clasificador IRIS", layout="wide")
-st.title("🌸 Clasificador Dinámico - Dataset IRIS")
+st.title("Clasificador Dinámico - Dataset IRIS")
 st.markdown("Aplicación pedagógica para entrenamiento, evaluación y predicción manual.")
 
 # ------------------------------
@@ -35,7 +35,7 @@ df["species"] = y
 # ------------------------------
 # SIDEBAR - CONFIGURACIÓN
 # ------------------------------
-st.sidebar.header("⚙ Configuración del Modelo")
+st.sidebar.header("Configuración del Modelo")
 
 test_size = st.sidebar.slider("Proporción de prueba (%)", 10, 50, 30) / 100
 
@@ -54,7 +54,7 @@ if model_option == "Decision Tree":
 # ------------------------------
 # VISUALIZACIÓN DEL DATASET
 # ------------------------------
-st.subheader("📊 Exploración del Dataset")
+st.subheader("Exploración del Dataset")
 
 col1, col2 = st.columns(2)
 
@@ -103,7 +103,7 @@ accuracy = accuracy_score(y_test, y_pred)
 # ------------------------------
 # RESULTADOS
 # ------------------------------
-st.subheader("📈 Desempeño del Modelo")
+st.subheader("Desempeño del Modelo")
 
 col3, col4 = st.columns(2)
 
@@ -121,13 +121,13 @@ with col4:
     plt.ylabel("Real")
     st.pyplot(fig_cm)
 
-st.subheader("📋 Reporte de Clasificación")
+st.subheader("Reporte de Clasificación")
 st.text(classification_report(y_test, y_pred, target_names=target_names))
 
 # ------------------------------
 # INTERFAZ DE PREDICCIÓN MANUAL
 # ------------------------------
-st.subheader("🔎 Predicción Manual")
+st.subheader("Predicción Manual")
 
 st.markdown("Ingrese valores para predecir la especie:")
 
@@ -142,12 +142,12 @@ if st.button("Predecir"):
     prediction = model.predict(input_array)
     predicted_class = target_names[prediction[0]]
 
-    st.success(f"La especie predicha es: **{predicted_class.upper()}** 🌸")
+    st.success(f"La especie predicha es: **{predicted_class.upper()}**")
 
 # ------------------------------
 # SECCIÓN PEDAGÓGICA
 # ------------------------------
-st.subheader("📘 Explicación Pedagógica")
+st.subheader("Explicación Pedagógica")
 
 if model_option == "KNN":
     st.info("""
